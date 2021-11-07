@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .scores{
+      margin-left: 20px;
+      margin-top: 20px;
+  }
+
+  .time{
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+
+  .container{
+    text-align: center;
+    margin: auto;
+    width: 500px;
+    margin-top: 50px;
+    
+  }
+
+  .start{
+      
+  }
