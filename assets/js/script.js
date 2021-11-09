@@ -4,40 +4,64 @@
 
 var viewHighScores = document.querySelector("#view-high-score");
 var timeLeft = document.querySelector("#timeLeft");
-var startQuiz = document.querySelector("#startQuiz");
-var questions = document.querySelector("#questions");
+var startQuizBtn = document.querySelector("#startQuiz");
+var questionsScreen = document.querySelector("#questions");
+var questionTitle = document.querySelector("#question-Title");
 var choices = document.querySelector("#choices");
 var endQuiz = document.querySelector("#endQuiz");
-var finalSore = document.querySelector("#finalScore");
+var finalScore = document.querySelector("#finalScore");
 var initials = document.querySelector("#initials");
-var sumbit = document.querySelector("#submit");
+var sumbitBtn = document.querySelector("#submit");
 var highscores = document.querySelector("#highscores");
-var clear = document.querySelector("#clear");
-var goBack = document.querySelector("#goBack");
+var clearBtn = document.querySelector("#clear");
+var goBackBtn = document.querySelector("#goBack");
+var start = document.querySelector(".start");
 
-var timeLeft;
+var time = 60;
+var timerEl;
+
+
+var questions = [
+  {
+  
+  title: "Arrays in JavaScript can be used to store ____.",
+  choices: [
+    "numbers and strings",
+    "other arrays",
+    "booleans",
+    "all of the above"
+  ],
+  answer: "all of the above"
+},
+
+{
+  
+  title: "Arrays in JavaScript can be used to store ____.",
+  choices: [
+    "numbers and strings",
+    "other arrays",
+    "booleans",
+    "all of the above"
+  ],
+  answer: "all of the above"
+},
+
+]
+
 
 function startQuiz() {
-    var startQuiz = document.getElementById("startQuiz");
-
-    timeLeft = setInterval(clockTick, 1000);
+  start.setAttribute("class", "hide");
+  questionsScreen.removeAttribute("class", "hide");
+  timerEl = setInterval(clockTick, 1000);
+  timeLeft.textContent = time;
 
 
 }
+
+
    
 
 
 
-var questions = [
-    {
-    
-    title: "Arrays in JavaScript can be used to store ____.",
-    choices: [
-      "numbers and strings",
-      "other arrays",
-      "booleans",
-      "all of the above"
-    ],
-    answer: "all of the above"
-  },
-]
+
+startQuizBtn.onclick = startQuiz;
