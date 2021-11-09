@@ -25,28 +25,28 @@ var timerEl;
 
 var questions = [
   {
-  
-  title: "Arrays in JavaScript can be used to store ____.",
-  choices: [
-    "numbers and strings",
-    "other arrays",
-    "booleans",
-    "all of the above"
-  ],
-  answer: "all of the above"
-},
 
-{
-  
-  title: "Arrays in JavaScript can be used to store ____.",
-  choices: [
-    "numbers and strings",
-    "other arrays",
-    "booleans",
-    "all of the above"
-  ],
-  answer: "all of the above"
-},
+    title: "Arrays in JavaScript can be used to store ____.",
+    choices: [
+      "numbers and strings",
+      "other arrays",
+      "booleans",
+      "all of the above"
+    ],
+    answer: "all of the above"
+  },
+
+  {
+
+    title: "Arrays in JavaScript can be used to store ____.",
+    choices: [
+      "numbers and strings",
+      "other arrays",
+      "booleans",
+      "all of the above"
+    ],
+    answer: "all of the above"
+  },
 
 ]
 
@@ -57,32 +57,56 @@ function startQuiz() {
   timerEl = setInterval(clockTick, 1000);
   timeLeft.textContent = time;
 
-displayQuestions();
+  displayQuestions();
 }
 
-function displayQuestions(){
+function displayQuestions() {
   var currentQuestion = questions[questionIndex];
   questionTitle.textContent = currentQuestion.title;
 
-  currentQuestion.choices.forEach(function(choice) {
+  currentQuestion.choices.forEach(function (choice) {
     var choicesBtn = document.createElement("button");
     choicesBtn.setAttribute("value", choice);
     choicesBtn.textContent = choice;
-    choicesBtn.onclick =choiceClick;
+    choicesBtn.onclick = choiceClick;
     choicesEl.appendChild(choicesBtn);
-    
+
   })
 
 }
 
-function choiceClick (){
+function choiceClick() {
+  if (this.value !== questions[questionIndex].answer) {
+    time -= 10;
+  }
+
+  if( time<0) {
+    time = 0;
+  }
+
+  timeLeft.textContent = time;
+
+  questionIndex++;
+
+  // if statement to check if questions are done
+    // if done - call end quiz
+    // iff more questions call function for next question
 
 }
 
 
-  function clockTick (){
-
+function clockTick() {
+  time--;
+  timeLeft.textContent = time;
+  if (time <= 0) {
+    quizOver()
   }
+
+}
+
+function quizOver() {
+
+}
 
 
 
