@@ -7,7 +7,7 @@ var timeLeft = document.querySelector("#timeLeft");
 var startQuizBtn = document.querySelector("#startQuiz");
 var questionsScreen = document.querySelector("#questions");
 var questionTitle = document.querySelector("#question-Title");
-var choices = document.querySelector("#choices");
+var choicesEl = document.querySelector("#choices");
 var endQuiz = document.querySelector("#endQuiz");
 var finalScore = document.querySelector("#finalScore");
 var initials = document.querySelector("#initials");
@@ -18,7 +18,9 @@ var goBackBtn = document.querySelector("#goBack");
 var start = document.querySelector(".start");
 
 var time = 60;
+var questionIndex = 0;
 var timerEl;
+
 
 
 var questions = [
@@ -55,11 +57,32 @@ function startQuiz() {
   timerEl = setInterval(clockTick, 1000);
   timeLeft.textContent = time;
 
+displayQuestions();
+}
+
+function displayQuestions(){
+  var currentQuestion = questions[questionIndex];
+  questionTitle.textContent = currentQuestion.title;
+
+  currentQuestion.choices.forEach(function(choice) {
+    var choicesBtn = document.createElement("button");
+    choicesBtn.setAttribute("value", choice);
+    choicesBtn.textContent = choice;
+    choicesBtn.onclick =choiceClick;
+    choicesEl.appendChild(choicesBtn);
+    
+  })
+
+}
+
+function choiceClick (){
 
 }
 
 
-   
+  function clockTick (){
+
+  }
 
 
 
